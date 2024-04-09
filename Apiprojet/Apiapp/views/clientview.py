@@ -30,3 +30,6 @@ class ClientViewSet(APIView):
         client = Client.objects.get(pk=pk)
         client.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+# teste jhdbcjezbfcuzeh
