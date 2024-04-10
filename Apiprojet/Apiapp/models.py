@@ -21,10 +21,8 @@ class User(AbstractUser):
     remember_token = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
     groups = models.ManyToManyField(Group, related_name='custom_user_groups')
     user_permissions = models.ManyToManyField(Permission, related_name='custom_user_permissions')
-
     def __str__(self):
         return self.username
 class Type(models.Model):
