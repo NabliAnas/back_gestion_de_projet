@@ -28,3 +28,10 @@ class ClientViewSet(APIView):
         client = Client.objects.get(pk=pk)
         client.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+class ClientViewSet2(APIView):
+    def get(self, request, pk):
+            try:
+                client = Client.objects.get(pk=pk)
+                return Response({'raison_sociale': client.raison_sociale})
+            except Client.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)

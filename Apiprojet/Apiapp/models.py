@@ -7,7 +7,7 @@ class Role(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 class User(AbstractUser):
-    username = models.CharField(max_length=150)
+    username = models.CharField(max_length=150, unique=True)
     firstname = models.CharField(max_length=150, blank=True, null=True)
     lastname = models.CharField(max_length=150, blank=True, null=True)
     email = models.EmailField(unique=True)
