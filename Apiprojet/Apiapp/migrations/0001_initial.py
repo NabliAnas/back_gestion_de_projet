@@ -78,6 +78,7 @@ class Migration(migrations.Migration):
                 ('total_ht', models.FloatField()),
                 ('total_ttc', models.FloatField()),
                 ('unite', models.CharField(max_length=50)),
+                ('numword', models.CharField(max_length=150)),
                 ('reference', models.TextField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),

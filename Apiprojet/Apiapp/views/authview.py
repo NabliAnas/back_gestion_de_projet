@@ -6,7 +6,7 @@ from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework_simplejwt.exceptions import AuthenticationFailed
 from ..serializers.userser import UserSerializer
 from ..models import User
-
+from rest_framework_simplejwt.authentication import JWTAuthentication
 class RegisterView(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
@@ -29,6 +29,12 @@ class UserView(APIView):
     permission_classes = [IsAuthenticated]
     def get(self, request):
         user = request.user
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+class UserViewp(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self, request):
+        user = JWTAuthentication().authenticate(request)[0]
         serializer = UserSerializer(user)
         return Response(serializer.data)
 class LogoutView(APIView):
