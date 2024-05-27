@@ -35,3 +35,7 @@ class ClientViewSet2(APIView):
                 return Response({'raison_sociale': client.raison_sociale})
             except Client.DoesNotExist:
                 return Response(status=status.HTTP_404_NOT_FOUND)
+class ClientCountView(APIView):  
+    def get(self, request):
+        client_count = Client.objects.count()
+        return Response({'client_count': client_count})

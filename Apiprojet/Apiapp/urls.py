@@ -7,6 +7,9 @@ from .views.factureview import FactureCreate
 from .views.etatavancement import UpdateProjetTaux
 from .views.profileview import UserProfileUpdate
 from .views.projetsview import Projetcreate,FilterByManager,FilterByStatus,FilterByYear,Getrole,Projetf,Recouvrement
+from .views.Countprojet import CountProjet,CountMontant
+from .views.clientview import ClientViewSet,ClientViewSet2 , ClientCountView
+from .views.managerview import UserList,UserCount
 urlpatterns = [
     path('register/', RegisterView.as_view()),
     path('login', LoginView.as_view()),
@@ -38,6 +41,11 @@ urlpatterns = [
     #GETROLE
     path('getrole/', Getrole.as_view(), name='getrole'),
     #etatavancement
-    path('etatavancement/<int:pk>/', UpdateProjetTaux.as_view(), name='update_projet_taux')
+    path('etatavancement/<int:pk>/', UpdateProjetTaux.as_view(), name='update_projet_taux'),
+    #cards
+    path('nombreProjets/', CountProjet.as_view(), name='nombre_projets'),
+    path('countmontant/', CountMontant.as_view(), name='count-montant'),
+    path('users/count/', UserCount.as_view(), name='user-count'),
+    path('clients/count/', ClientCountView.as_view()),
 ]
 

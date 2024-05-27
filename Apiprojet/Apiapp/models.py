@@ -5,7 +5,6 @@ class Role(models.Model):
     role_name = models.CharField(max_length=255, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
 class User(AbstractUser):
     username = models.CharField(max_length=150, unique=True)
     firstname = models.CharField(max_length=150, blank=True, null=True)

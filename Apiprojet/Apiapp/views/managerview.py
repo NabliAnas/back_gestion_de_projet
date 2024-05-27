@@ -24,3 +24,7 @@ class UserList(APIView):
         user = User.objects.get(pk=pk)
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+class UserCount(APIView):
+    def get(self, request):
+        user_count = User.objects.count()
+        return Response({'user_count': user_count})
